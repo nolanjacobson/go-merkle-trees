@@ -1,15 +1,9 @@
 package main
 
 import (
-    "log",
-    "go-merkle-trees"
-    // Import other necessary packages
+    "fmt"
+    "github.com/nolanjacobson/go-merkle-trees/internal/merkletree"
 )
-
-// func main() {
-//     // Your application logic here
-//     log.Println("Application started")
-// }
 
 func main() {
     dataBlocks := [][]byte{
@@ -18,6 +12,6 @@ func main() {
         // ... more blocks
     }
 
-    merkleTree := NewMerkleTree(dataBlocks)
-    fmt.Println("Merkle Tree Root Hash:", merkleTree.Root.Data)
+    merkleTree := merkletree.NewMerkleTree(dataBlocks)
+    fmt.Printf("Merkle Tree Root Hash: %x\n", merkleTree.Root.Data)
 }
